@@ -14,6 +14,20 @@ def add_task():
     tasks.append(new_task)
     print("task successfully added")
 
+def view_task():
+    if not tasks :
+        print("No tasks found.")
+        return
+    for index, task in enumerate(tasks):
+        print(f"{index}. {task['task']} | Priority: {task['priority']} | Due: {task['due_date']}")
+        if task["completed"] is True:
+            print("COMPLETED")
+        else:
+            print("PENDING")
+
+    
+
+
 
 def main ():
     while True:
@@ -30,7 +44,7 @@ def main ():
         if choice == '1':
             add_task()
         elif choice == '2':
-            print("coming soon")
+            view_task()
         elif choice == '3':
             print("coming soon")
         elif choice == '4':
