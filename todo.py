@@ -25,6 +25,34 @@ def view_task():
         else:
             print("PENDING")
 
+def complete_task():
+    if not tasks:
+        print("No task to complete")
+        return
+    view_task()
+    show = int(input("Enter the number of the task to complete: "))
+    tasks[show]["completed"] = True
+    print("Task successfully completed")
+
+def delete_task():
+    if not tasks:
+        print("No task to delete")
+        return
+    view_task()
+    show = int(input("Enter the number of task to delete: "))
+    tasks.pop(show)
+    print("Task successfully deleted")
+
+def edit_task():
+    if not tasks:
+        print("No task to edit: ")
+        return
+    view_task()
+    show = int(input("Enter the number of the to edit: "))
+    
+
+
+
     
 
 
@@ -46,11 +74,11 @@ def main ():
         elif choice == '2':
             view_task()
         elif choice == '3':
-            print("coming soon")
+            complete_task()
         elif choice == '4':
-            print("coming soon")
+            delete_task()
         elif choice == '5':
-            print("coming soon")
+            delete_task()
         elif choice == '6':
             print("coming soon")
         elif choice == '7':
