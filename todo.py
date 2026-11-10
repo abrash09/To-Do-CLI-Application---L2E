@@ -49,8 +49,25 @@ def edit_task():
         return
     view_task()
     show = int(input("Enter the number of the to edit: "))
+    task1_new = input("Enter new task name")
+    task2_new = input("Enter new priority")
+    task3_new = input("Enter new due_time")
+    tasks[show]["task"] = task1_new
+    tasks[show]["priority"] = task2_new
+    tasks[show]["due_date"] = task3_new
+    print("successfully edited")
     
-
+def filter_task ():
+    if not tasks:
+        print("No tasks found")
+        return
+    filter_choice = input("Filter by (1. pending, 2. Completed): ")
+    if filter_choice == "1":
+        tasks["completed"] is False
+    elif filter_choice == "2":
+        tasks["completed"] is True
+    for index, task in enumerate(tasks):
+        print(f"{index}. {task['task']} | Priority: {task['priority']} | Due: {task['due_date']}" )
 
 
     
@@ -76,11 +93,11 @@ def main ():
         elif choice == '3':
             complete_task()
         elif choice == '4':
-            delete_task()
+            edit_task()
         elif choice == '5':
             delete_task()
         elif choice == '6':
-            print("coming soon")
+           filter_task()
         elif choice == '7':
             print("Goodbye")
             break
